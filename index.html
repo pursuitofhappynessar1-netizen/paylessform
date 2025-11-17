@@ -271,10 +271,29 @@
       }
 
       .message.success {
-        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        background: #9AAFBE;
         color: #065f46;
         border: 1px solid var(--success);
         font-family: 'Roboto', sans-serif;
+      }
+
+      .form-group:disabled,
+      input:disabled,
+      select:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      form.disabled input,
+      form.disabled select,
+      form.disabled button:not(#submitBtn) {
+        pointer-events: none;
+        opacity: 0.6;
+      }
+
+      form.disabled #submitBtn {
+        pointer-events: none;
+        opacity: 0.6;
       }
 
       .message.error {
@@ -681,8 +700,15 @@
           recommendedNameGroup.classList.add('hidden');
           recommendedPhoneGroup.classList.add('hidden');
         } finally {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Submit Application';
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
+          form.classList.add('disabled');
+
+          const disableTimeout = setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Application';
+            form.classList.remove('disabled');
+          }, 60000);
         }
       });
     </script>
