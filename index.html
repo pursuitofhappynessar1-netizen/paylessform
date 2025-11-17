@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./logoFav.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payless Recruitment - Join Our Team</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #111827;
+        --orange: #eb590d;
+        --blue: #179ae9;
+        --light: #eff7ff;
+        --background: #f8fafb;
+        --surface: #ffffff;
+        --text-dark: #111827;
+        --text-medium: #4b5563;
+        --text-light: #9ca3af;
+        --border: #e5e7eb;
+        --error: #dc2626;
+        --success: #10b981;
+      }
+
+      body {
+        font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, var(--light) 0%, #ffffff 100%);
+        color: var(--text-dark);
+        min-height: 100vh;
+        padding: 0;
+        margin: 0;
+        line-height: 1.6;
+        animation: fadeIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(40px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 24px 16px;
+        animation: slideUp 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
+      }
+
+      .logo-container {
+        text-align: center;
+        margin-bottom: 40px;
+        padding: 48px 24px 32px;
+        background: var(--surface);
+        border-radius: 0 0 24px 24px;
+        box-shadow: 0 4px 16px rgba(17, 24, 39, 0.08);
+        animation: slideUp 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s backwards;
+      }
+
+      .logo-image {
+        max-width: 200px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        animation: fadeIn 0.8s ease-out 0.3s backwards;
+      }
+
+      .logo-tagline {
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        color: var(--text-medium);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        font-family: 'Cairo', sans-serif;
+      }
+
+      .form-container {
+        background: var(--surface);
+        padding: clamp(32px, 6vw, 56px);
+        border-radius: 24px;
+        box-shadow: 0 8px 32px rgba(17, 24, 39, 0.1);
+        margin-bottom: 40px;
+        animation: slideUp 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s backwards;
+      }
+
+      .header-text {
+        text-align: center;
+        font-size: clamp(1rem, 2.5vw, 1.15rem);
+        color: var(--text-medium);
+        margin-bottom: 40px;
+        line-height: 1.7;
+        font-weight: 500;
+        padding: 0 8px;
+        letter-spacing: 0.3px;
+      }
+
+      .form-group {
+        margin-bottom: 28px;
+        animation: fadeIn 0.4s ease-out;
+      }
+
+      .form-group.hidden {
+        display: none;
+      }
+
+      label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: var(--text-dark);
+        font-size: clamp(0.92rem, 2.2vw, 1rem);
+        letter-spacing: 0.2px;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .label-en {
+        text-align: right;
+        font-family: 'Roboto', sans-serif;
+        flex: 1;
+      }
+
+      .label-ar {
+        text-align: left;
+        font-family: 'Cairo', sans-serif;
+        direction: ltr;
+        flex: 1;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 14px 16px;
+        border: 2px solid var(--border);
+        border-radius: 10px;
+        font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: var(--surface);
+        color: var(--text-dark);
+        font-family: 'Roboto', sans-serif;
+      }
+
+      input:hover:not(:focus),
+      select:hover:not(:focus) {
+        border-color: var(--blue);
+        background-color: var(--light);
+      }
+
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: var(--blue);
+        box-shadow: 0 0 0 4px rgba(23, 154, 233, 0.1);
+        background: var(--surface);
+      }
+
+      input::placeholder {
+        color: var(--text-light);
+      }
+
+      input.error {
+        border-color: var(--error);
+      }
+
+      .error-message {
+        color: var(--error);
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+        margin-top: 6px;
+        display: block;
+        animation: fadeIn 0.3s ease-out;
+        font-weight: 500;
+      }
+
+      button {
+        width: 100%;
+        padding: 16px 32px;
+        background: linear-gradient(135deg, var(--orange) 0%, #ff6b1a 100%);
+        color: #ffffff;
+        border: none;
+        border-radius: 12px;
+        font-size: clamp(1rem, 2.5vw, 1.1rem);
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 8px 24px rgba(235, 89, 13, 0.3);
+        font-family: 'Roboto', sans-serif;
+        margin-top: 16px;
+      }
+
+      button:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(235, 89, 13, 0.4);
+        background: linear-gradient(135deg, #ff6b1a 0%, var(--orange) 100%);
+      }
+
+      button:active:not(:disabled) {
+        transform: translateY(0);
+      }
+
+      button:disabled {
+        background: linear-gradient(135deg, var(--text-light) 0%, var(--text-light) 100%);
+        cursor: not-allowed;
+        opacity: 0.6;
+        box-shadow: 0 4px 12px rgba(17, 24, 39, 0.1);
+      }
+
+      .footer-text {
+        text-align: center;
+        margin-top: 32px;
+        font-size: clamp(0.92rem, 2.2vw, 1rem);
+        color: var(--text-medium);
+        letter-spacing: 0.2px;
+      }
+
+      .footer-text a {
+        color: var(--blue);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+      }
+
+      .footer-text a:hover {
+        color: var(--orange);
+      }
+
+      .footer-text a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--orange);
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .footer-text a:hover::after {
+        width: 100%;
+      }
+
+      .message {
+        padding: 20px 24px;
+        border-radius: 14px;
+        margin-bottom: 24px;
+        text-align: center;
+        font-weight: 500;
+        animation: slideDown 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+        line-height: 1.7;
+        letter-spacing: 0.2px;
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-24px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .message.success {
+        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        color: #065f46;
+        border: 1px solid var(--success);
+        font-family: 'Cairo', sans-serif;
+      }
+
+      .message.error {
+        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+        color: #991b1b;
+        border: 1px solid var(--error);
+      }
+
+      .required {
+        color: var(--orange);
+        font-weight: 700;
+        font-size: 1.1em;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 16px 12px;
+        }
+
+        .logo-container {
+          margin-bottom: 32px;
+          padding: 36px 20px 28px;
+          border-radius: 0 0 20px 20px;
+        }
+
+        .logo-image {
+          max-width: 160px;
+        }
+
+        .form-container {
+          padding: 32px 20px;
+          border-radius: 20px;
+          margin-bottom: 32px;
+        }
+
+        .header-text {
+          margin-bottom: 32px;
+        }
+
+        .form-group {
+          margin-bottom: 24px;
+        }
+
+        label {
+          font-size: 0.9rem;
+          margin-bottom: 8px;
+          gap: 8px;
+        }
+
+        input,
+        select {
+          padding: 13px 14px;
+          font-size: 0.98rem;
+        }
+
+        button {
+          padding: 15px 28px;
+          font-size: 0.98rem;
+          margin-top: 12px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 12px;
+        }
+
+        .logo-container {
+          margin-bottom: 28px;
+          padding: 28px 16px 24px;
+        }
+
+        .logo-image {
+          max-width: 140px;
+        }
+
+        .logo-tagline {
+          font-size: 0.95rem;
+        }
+
+        .form-container {
+          padding: 24px 16px;
+        }
+
+        .header-text {
+          font-size: 0.95rem;
+          margin-bottom: 28px;
+        }
+
+        .message {
+          padding: 16px 20px;
+          font-size: 0.92rem;
+        }
+
+        label {
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+        }
+      }
+    </style>
+    <meta property="og:image" content="https://paylesseg.com/paylessjobs/logoFav.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://paylesseg.com/paylessjobs/logoFav.png">
+</head>
+  <body>
+    <div class="container">
+      <div class="logo-container">
+        <img src="./logoFav.png" alt="Payless Logo" class="logo-image">
+        <div class="logo-tagline">Join Our Growing Team</div>
+      </div>
+
+      <div class="form-container">
+        <div class="header-text">
+          A great opportunity to join a fast-growing team. Apply now and take the first step toward an exciting telesales career with Payless.
+        </div>
+
+        <div id="messageContainer"></div>
+
+        <form id="recruitmentForm">
+          <div class="form-group">
+            <label for="fullName">
+              <span class="label-en">Full Name</span>
+              <span class="required">*</span>
+              <span class="label-ar">الإسم كامل</span>
+            </label>
+            <input type="text" id="fullName" name="fullName" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phoneNumber">
+              <span class="label-en">Phone Number</span>
+              <span class="required">*</span>
+              <span class="label-ar">رقم الهاتف</span>
+            </label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="01xxxxxxxxx" maxlength="11" pattern="01[0-9]{9}" required />
+            <span class="error-message" id="phoneError" style="display: none;"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="birthDate">
+              <span class="label-en">Date of Birth</span>
+              <span class="required">*</span>
+              <span class="label-ar">تاريخ الميلاد</span>
+            </label>
+            <input type="date" id="birthDate" name="birthDate" required />
+          </div>
+
+          <div class="form-group">
+            <label for="governorate">
+              <span class="label-en">Governorate</span>
+              <span class="required">*</span>
+              <span class="label-ar">المحافظة</span>
+            </label>
+            <select id="governorate" name="governorate" required>
+              <option value="">Select</option>
+              <option value="Cairo">Cairo / القاهرة</option>
+              <option value="Giza">Giza / الجيزة</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="city">
+              <span class="label-en">City</span>
+              <span class="required">*</span>
+              <span class="label-ar">المدينة</span>
+            </label>
+            <select id="city" name="city" required disabled>
+              <option value="">Select governorate first</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="gender">
+              <span class="label-en">Gender</span>
+              <span class="required">*</span>
+              <span class="label-ar">النوع</span>
+            </label>
+            <select id="gender" name="gender" required>
+              <option value="">Select</option>
+              <option value="Male">Male / ذكر</option>
+              <option value="Female">Female / أنثى</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="educationLevel">
+              <span class="label-en">Education Level</span>
+              <span class="required">*</span>
+              <span class="label-ar">المؤهل الدراسي</span>
+            </label>
+            <select id="educationLevel" name="educationLevel" required>
+              <option value="">Select</option>
+              <option value="High School">High School / الثانوية العامة</option>
+              <option value="Diploma">Diploma / دبلوم</option>
+              <option value="Bachelor">Bachelor / بكالوريوس</option>
+              <option value="Master">Master / ماجستير</option>
+              <option value="PhD">PhD / دكتوراه</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="experienceYears">
+              <span class="label-en">Years of Experience in Telesales</span>
+              <span class="required">*</span>
+              <span class="label-ar">عدد سنوات الخبرة في التيلي سيلز</span>
+            </label>
+            <input type="number" id="experienceYears" name="experienceYears" min="0" step="1" required />
+          </div>
+
+          <div class="form-group">
+            <label for="availableImmediately">
+              <span class="label-en">Available to Start Immediately?</span>
+              <span class="required">*</span>
+              <span class="label-ar">هل أنت جاهز للعمل في الحال؟</span>
+            </label>
+            <select id="availableImmediately" name="availableImmediately" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes / نعم</option>
+              <option value="No">No / لا</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="hasRecommendation">
+              <span class="label-en">Can You Recommend Someone?</span>
+              <span class="required">*</span>
+              <span class="label-ar">هل لديك شخص مناسب ويمكنك ترشيحه؟</span>
+            </label>
+            <select id="hasRecommendation" name="hasRecommendation" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes / نعم</option>
+              <option value="No">No / لا</option>
+            </select>
+          </div>
+
+          <div class="form-group hidden" id="recommendedNameGroup">
+            <label for="recommendedName">
+              <span class="label-en">Recommended Person Name</span>
+              <span class="label-ar">اسم المرشَّح</span>
+            </label>
+            <input type="text" id="recommendedName" name="recommendedName" />
+          </div>
+
+          <div class="form-group hidden" id="recommendedPhoneGroup">
+            <label for="recommendedPhone">
+              <span class="label-en">Recommended Person Phone</span>
+              <span class="label-ar">رقم هاتف المرشَّح</span>
+            </label>
+            <input type="tel" id="recommendedPhone" name="recommendedPhone" placeholder="01xxxxxxxxx" maxlength="11" pattern="01[0-9]{9}" />
+            <span class="error-message" id="recommendedPhoneError" style="display: none;"></span>
+          </div>
+
+          <button type="submit" id="submitBtn">Submit Application</button>
+        </form>
+
+        <div class="footer-text">
+          Want to know more about Payless? Visit our <a href="https://www.paylesseg.com" target="_blank" rel="noopener noreferrer">website</a>.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const cityData = {
+        Cairo: ['Nasr City', 'Maadi', 'Heliopolis', 'New Cairo', 'Shubra', 'Downtown', 'Mokattam'],
+        Giza: ['Dokki', 'Mohandessin', 'Faisal', 'Haram', 'October', 'Sheikh Zayed', 'Imbaba']
+      };
+
+      const governorateSelect = document.getElementById('governorate');
+      const citySelect = document.getElementById('city');
+      const hasRecommendationSelect = document.getElementById('hasRecommendation');
+      const recommendedNameGroup = document.getElementById('recommendedNameGroup');
+      const recommendedPhoneGroup = document.getElementById('recommendedPhoneGroup');
+      const recommendedNameInput = document.getElementById('recommendedName');
+      const recommendedPhoneInput = document.getElementById('recommendedPhone');
+      const form = document.getElementById('recruitmentForm');
+      const messageContainer = document.getElementById('messageContainer');
+      const submitBtn = document.getElementById('submitBtn');
+      const phoneNumberInput = document.getElementById('phoneNumber');
+      const phoneError = document.getElementById('phoneError');
+      const recommendedPhoneError = document.getElementById('recommendedPhoneError');
+
+      governorateSelect.addEventListener('change', function() {
+        const selectedGovernorate = this.value;
+        citySelect.innerHTML = '<option value="">Select / اختر</option>';
+
+        if (selectedGovernorate && cityData[selectedGovernorate]) {
+          citySelect.disabled = false;
+          cityData[selectedGovernorate].forEach(city => {
+            const option = document.createElement('option');
+            option.value = city;
+            option.textContent = city;
+            citySelect.appendChild(option);
+          });
+        } else {
+          citySelect.disabled = true;
+          citySelect.innerHTML = '<option value="">Select governorate first / اختر المحافظة أولاً</option>';
+        }
+        citySelect.value = '';
+      });
+
+      function validatePhoneNumber(input, errorElement) {
+        const value = input.value.trim();
+        let errorMessage = '';
+
+        if (value === '') {
+          errorElement.style.display = 'none';
+          input.classList.remove('error');
+          return true;
+        }
+
+        if (!/^[0-9]*$/.test(value)) {
+          errorMessage = 'Phone number must contain only English digits (0-9)';
+        } else if (value.length !== 11) {
+          errorMessage = 'Phone number must be exactly 11 digits';
+        } else if (!value.startsWith('01')) {
+          errorMessage = 'Phone number must start with 01';
+        }
+
+        if (errorMessage) {
+          errorElement.textContent = errorMessage;
+          errorElement.style.display = 'block';
+          input.classList.add('error');
+          return false;
+        } else {
+          errorElement.style.display = 'none';
+          input.classList.remove('error');
+          return true;
+        }
+      }
+
+      phoneNumberInput.addEventListener('input', function(e) {
+        this.value = this.value.replace(/[^0-9]/g, '');
+        validatePhoneNumber(this, phoneError);
+      });
+
+      phoneNumberInput.addEventListener('blur', function() {
+        if (this.value.trim() !== '') {
+          validatePhoneNumber(this, phoneError);
+        }
+      });
+
+      recommendedPhoneInput.addEventListener('input', function(e) {
+        this.value = this.value.replace(/[^0-9]/g, '');
+        validatePhoneNumber(this, recommendedPhoneError);
+      });
+
+      recommendedPhoneInput.addEventListener('blur', function() {
+        if (this.value.trim() !== '') {
+          validatePhoneNumber(this, recommendedPhoneError);
+        }
+      });
+
+      hasRecommendationSelect.addEventListener('change', function() {
+        if (this.value === 'Yes') {
+          recommendedNameGroup.classList.remove('hidden');
+          recommendedPhoneGroup.classList.remove('hidden');
+        } else {
+          recommendedNameGroup.classList.add('hidden');
+          recommendedPhoneGroup.classList.add('hidden');
+          recommendedNameInput.value = '';
+          recommendedPhoneInput.value = '';
+          recommendedPhoneError.style.display = 'none';
+          recommendedPhoneInput.classList.remove('error');
+        }
+      });
+
+      function showMessage(message, type) {
+        messageContainer.innerHTML = `<div class="message ${type}">${message}</div>`;
+        messageContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      function clearMessage() {
+        messageContainer.innerHTML = '';
+      }
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        clearMessage();
+
+        const phoneValid = validatePhoneNumber(phoneNumberInput, phoneError);
+
+        let recommendedPhoneValid = true;
+        if (hasRecommendationSelect.value === 'Yes' && recommendedPhoneInput.value.trim() !== '') {
+          recommendedPhoneValid = validatePhoneNumber(recommendedPhoneInput, recommendedPhoneError);
+        }
+
+        if (!phoneValid || !recommendedPhoneValid) {
+          showMessage('Please fix the phone number errors before submitting.', 'error');
+          return;
+        }
+
+        const formData = {
+          fullName: document.getElementById('fullName').value.trim(),
+          phoneNumber: document.getElementById('phoneNumber').value.trim(),
+          birthDate: document.getElementById('birthDate').value,
+          governorate: document.getElementById('governorate').value,
+          city: document.getElementById('city').value,
+          gender: document.getElementById('gender').value,
+          educationLevel: document.getElementById('educationLevel').value,
+          experienceYears: parseInt(document.getElementById('experienceYears').value),
+          availableImmediately: document.getElementById('availableImmediately').value,
+          hasRecommendation: document.getElementById('hasRecommendation').value,
+          recommendedName: document.getElementById('recommendedName').value.trim() || '',
+          recommendedPhone: document.getElementById('recommendedPhone').value.trim() || ''
+        };
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+
+        try {
+          const response = await fetch('https://script.google.com/macros/s/AKfycbzw1a0KlIZXPjKuF8HYeMJXfzqKl2Mvib1fcb37jXuWuUTHn3zr5VdLtDb9WZkVMS381w/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+          });
+
+          showMessage('تم استقبال طلبك وهيتم الرد عليك خلال ٢٤ ساعة من خلال واتساب أو مكالمة هاتفية.', 'success');
+          form.reset();
+          citySelect.disabled = true;
+          citySelect.innerHTML = '<option value="">Select governorate first / اختر المحافظة أولاً</option>';
+          recommendedNameGroup.classList.add('hidden');
+          recommendedPhoneGroup.classList.add('hidden');
+
+        } catch (error) {
+          console.error('Error:', error);
+          showMessage('تم استقبال طلبك وهيتم الرد عليك خلال ٢٤ ساعة من خلال واتساب أو مكالمة هاتفية.', 'success');
+          form.reset();
+          citySelect.disabled = true;
+          citySelect.innerHTML = '<option value="">Select governorate first / اختر المحافظة أولاً</option>';
+          recommendedNameGroup.classList.add('hidden');
+          recommendedPhoneGroup.classList.add('hidden');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Application';
+        }
+      });
+    </script>
+  </body>
+</html>
