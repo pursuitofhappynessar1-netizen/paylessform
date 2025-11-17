@@ -123,29 +123,14 @@
       }
 
       label {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: block;
+        text-align: left;
         margin-bottom: 10px;
         font-weight: 600;
         color: var(--text-dark);
         font-size: clamp(0.92rem, 2.2vw, 1rem);
         letter-spacing: 0.2px;
-        gap: 12px;
-        text-align: center;
-      }
-
-      .label-en {
-        text-align: right;
         font-family: 'Roboto', sans-serif;
-        flex: 1;
-      }
-
-      .label-ar {
-        text-align: left;
-        font-family: 'Cairo', sans-serif;
-        direction: ltr;
-        flex: 1;
       }
 
       input,
@@ -195,7 +180,7 @@
       button {
         width: 100%;
         padding: 16px 32px;
-        background: linear-gradient(135deg, var(--orange) 0%, #ff6b1a 100%);
+        background: linear-gradient(135deg, #1A374D 0%, #406E84 50%, #6998AB 100%);
         color: #ffffff;
         border: none;
         border-radius: 12px;
@@ -205,15 +190,15 @@
         transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         text-transform: uppercase;
         letter-spacing: 1px;
-        box-shadow: 0 8px 24px rgba(235, 89, 13, 0.3);
+        box-shadow: 0 8px 24px rgba(26, 55, 77, 0.35);
         font-family: 'Roboto', sans-serif;
         margin-top: 16px;
       }
 
       button:hover:not(:disabled) {
         transform: translateY(-2px);
-        box-shadow: 0 12px 32px rgba(235, 89, 13, 0.4);
-        background: linear-gradient(135deg, #ff6b1a 0%, var(--orange) 100%);
+        box-shadow: 0 12px 32px rgba(26, 55, 77, 0.45);
+        background: linear-gradient(135deg, #6998AB 0%, #406E84 50%, #1A374D 100%);
       }
 
       button:active:not(:disabled) {
@@ -289,7 +274,7 @@
         background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
         color: #065f46;
         border: 1px solid var(--success);
-        font-family: 'Cairo', sans-serif;
+        font-family: 'Roboto', sans-serif;
       }
 
       .message.error {
@@ -384,12 +369,6 @@
           font-size: 0.92rem;
         }
 
-        label {
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          gap: 8px;
-        }
       }
     </style>
     <meta property="og:image" content="https://paylesseg.com/paylessjobs/logoFav.png">
@@ -405,7 +384,7 @@
 
       <div class="form-container">
         <div class="header-text">
-          A great opportunity to join a fast-growing team. Apply now and take the first step toward an exciting telesales career with Payless.
+          Want to earn and have fun at the same time? Apply now and we'll show you the way to the cash! 🤩
         </div>
 
         <div id="messageContainer"></div>
@@ -413,18 +392,14 @@
         <form id="recruitmentForm">
           <div class="form-group">
             <label for="fullName">
-              <span class="label-en">Full Name</span>
-              <span class="required">*</span>
-              <span class="label-ar">الإسم كامل</span>
+              Full Name <span class="required">*</span>
             </label>
             <input type="text" id="fullName" name="fullName" required />
           </div>
 
           <div class="form-group">
             <label for="phoneNumber">
-              <span class="label-en">Phone Number</span>
-              <span class="required">*</span>
-              <span class="label-ar">رقم الهاتف</span>
+              Phone Number <span class="required">*</span>
             </label>
             <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="01xxxxxxxxx" maxlength="11" pattern="01[0-9]{9}" required />
             <span class="error-message" id="phoneError" style="display: none;"></span>
@@ -432,31 +407,25 @@
 
           <div class="form-group">
             <label for="birthDate">
-              <span class="label-en">Date of Birth</span>
-              <span class="required">*</span>
-              <span class="label-ar">تاريخ الميلاد</span>
+              Date of Birth <span class="required">*</span>
             </label>
             <input type="date" id="birthDate" name="birthDate" required />
           </div>
 
           <div class="form-group">
             <label for="governorate">
-              <span class="label-en">Governorate</span>
-              <span class="required">*</span>
-              <span class="label-ar">المحافظة</span>
+              Governorate <span class="required">*</span>
             </label>
             <select id="governorate" name="governorate" required>
               <option value="">Select</option>
-              <option value="Cairo">Cairo / القاهرة</option>
-              <option value="Giza">Giza / الجيزة</option>
+              <option value="Cairo">Cairo</option>
+              <option value="Giza">Giza</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="city">
-              <span class="label-en">City</span>
-              <span class="required">*</span>
-              <span class="label-ar">المدينة</span>
+              City <span class="required">*</span>
             </label>
             <select id="city" name="city" required disabled>
               <option value="">Select governorate first</option>
@@ -465,80 +434,65 @@
 
           <div class="form-group">
             <label for="gender">
-              <span class="label-en">Gender</span>
-              <span class="required">*</span>
-              <span class="label-ar">النوع</span>
+              Gender <span class="required">*</span>
             </label>
             <select id="gender" name="gender" required>
               <option value="">Select</option>
-              <option value="Male">Male / ذكر</option>
-              <option value="Female">Female / أنثى</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="educationLevel">
-              <span class="label-en">Education Level</span>
-              <span class="required">*</span>
-              <span class="label-ar">المؤهل الدراسي</span>
+              Education Level <span class="required">*</span>
             </label>
             <select id="educationLevel" name="educationLevel" required>
               <option value="">Select</option>
-              <option value="High School">High School / الثانوية العامة</option>
-              <option value="Diploma">Diploma / دبلوم</option>
-              <option value="Bachelor">Bachelor / بكالوريوس</option>
-              <option value="Master">Master / ماجستير</option>
-              <option value="PhD">PhD / دكتوراه</option>
+              <option value="Graduate">Graduate</option>
+              <option value="Student">Student</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="experienceYears">
-              <span class="label-en">Years of Experience in Telesales</span>
-              <span class="required">*</span>
-              <span class="label-ar">عدد سنوات الخبرة في التيلي سيلز</span>
+              Years of Experience in Telesales <span class="required">*</span>
             </label>
             <input type="number" id="experienceYears" name="experienceYears" min="0" step="1" required />
           </div>
 
           <div class="form-group">
             <label for="availableImmediately">
-              <span class="label-en">Available to Start Immediately?</span>
-              <span class="required">*</span>
-              <span class="label-ar">هل أنت جاهز للعمل في الحال؟</span>
+              Available to Start Immediately? <span class="required">*</span>
             </label>
             <select id="availableImmediately" name="availableImmediately" required>
               <option value="">Select</option>
-              <option value="Yes">Yes / نعم</option>
-              <option value="No">No / لا</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="hasRecommendation">
-              <span class="label-en">Can You Recommend Someone?</span>
-              <span class="required">*</span>
-              <span class="label-ar">هل لديك شخص مناسب ويمكنك ترشيحه؟</span>
+              Can You Recommend Someone? <span class="required">*</span>
             </label>
             <select id="hasRecommendation" name="hasRecommendation" required>
               <option value="">Select</option>
-              <option value="Yes">Yes / نعم</option>
-              <option value="No">No / لا</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
             </select>
           </div>
 
           <div class="form-group hidden" id="recommendedNameGroup">
             <label for="recommendedName">
-              <span class="label-en">Recommended Person Name</span>
-              <span class="label-ar">اسم المرشَّح</span>
+              Recommended Person Name
             </label>
             <input type="text" id="recommendedName" name="recommendedName" />
           </div>
 
           <div class="form-group hidden" id="recommendedPhoneGroup">
             <label for="recommendedPhone">
-              <span class="label-en">Recommended Person Phone</span>
-              <span class="label-ar">رقم هاتف المرشَّح</span>
+              Recommended Person Phone
             </label>
             <input type="tel" id="recommendedPhone" name="recommendedPhone" placeholder="01xxxxxxxxx" maxlength="11" pattern="01[0-9]{9}" />
             <span class="error-message" id="recommendedPhoneError" style="display: none;"></span>
@@ -555,8 +509,8 @@
 
     <script>
       const cityData = {
-        Cairo: ['Nasr City', 'Maadi', 'Heliopolis', 'New Cairo', 'Shubra', 'Downtown', 'Mokattam'],
-        Giza: ['Dokki', 'Mohandessin', 'Faisal', 'Haram', 'October', 'Sheikh Zayed', 'Imbaba']
+        Cairo: ['Heliopolis', 'Nasr City', 'First Settlement', 'Third Settlement', 'Fifth Settlement', 'New Cairo', 'El Shorouk', 'Madinaty', 'Abbassiya', 'Downtown', 'Shoubra El Kheima', 'Shoubra Masr', 'El Sahel', 'El Sharabiya', 'Hadaeq El Qobba', 'El Zeitoun', 'Ain Shams', 'El Marg', 'El Mataria', 'Gesr El Suez', 'Old Cairo', 'El Fostat', 'Maadi', 'New Maadi', 'Helwan', '15th of May City', 'El Sayeda Zeinab', 'Mokattam', 'El Basateen', 'Dar El Salam', 'Garden City', 'Zamalek', 'Boulak'],
+        Giza: ['Haram', 'Faisal', 'Talbia', 'Hadaeq El Ahram', 'Mariouteya', 'Omraneya', 'Dokki', 'Mohandessin', 'Agouza', 'Imbaba', 'Warraq', 'Boulak El Dakrour', 'Ard El Lewa', '6th of October', 'Sheikh Zayed', 'Hadaeq October']
       };
 
       const governorateSelect = document.getElementById('governorate');
@@ -575,7 +529,7 @@
 
       governorateSelect.addEventListener('change', function() {
         const selectedGovernorate = this.value;
-        citySelect.innerHTML = '<option value="">Select / اختر</option>';
+        citySelect.innerHTML = '<option value="">Select</option>';
 
         if (selectedGovernorate && cityData[selectedGovernorate]) {
           citySelect.disabled = false;
@@ -587,7 +541,7 @@
           });
         } else {
           citySelect.disabled = true;
-          citySelect.innerHTML = '<option value="">Select governorate first / اختر المحافظة أولاً</option>';
+          citySelect.innerHTML = '<option value="">Select governorate first</option>';
         }
         citySelect.value = '';
       });
@@ -711,19 +665,19 @@
             body: JSON.stringify(formData)
           });
 
-          showMessage('تم استقبال طلبك وهيتم الرد عليك خلال ٢٤ ساعة من خلال واتساب أو مكالمة هاتفية.', 'success');
+          showMessage('All set! We\'ll buzz you on WhatsApp or call within 24 hours—so don\'t hide your phone, big money awaits! 🥳', 'success');
           form.reset();
           citySelect.disabled = true;
-          citySelect.innerHTML = '<option value="">Select governorate first / اختر المحافظة أولاً</option>';
+          citySelect.innerHTML = '<option value="">Select governorate first</option>';
           recommendedNameGroup.classList.add('hidden');
           recommendedPhoneGroup.classList.add('hidden');
 
         } catch (error) {
           console.error('Error:', error);
-          showMessage('تم استقبال طلبك وهيتم الرد عليك خلال ٢٤ ساعة من خلال واتساب أو مكالمة هاتفية.', 'success');
+          showMessage('All set! We\'ll buzz you on WhatsApp or call within 24 hours—so don\'t hide your phone, big money awaits! 🥳', 'success');
           form.reset();
           citySelect.disabled = true;
-          citySelect.innerHTML = '<option value="">Select governorate first / اختر المحافظة أولاً</option>';
+          citySelect.innerHTML = '<option value="">Select governorate first</option>';
           recommendedNameGroup.classList.add('hidden');
           recommendedPhoneGroup.classList.add('hidden');
         } finally {
